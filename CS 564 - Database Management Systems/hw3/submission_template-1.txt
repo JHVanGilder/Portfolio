@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<pset>
+
+    <!--
+        CS 564, Fall 2022
+        HOMEWORK 3 SUBMISSION TEMPLATE
+
+        Please copy and paste your SQL queries (and potentially Python and Latex code) 
+	into the appropriate spots below. 
+
+        When submitting SQL queries, please do not include the initial 
+        %sql or %%sql IPython commands. Just include the SQL code.
+
+        DO NOT DELETE THE <![CDATA[ ... ]]> LINES IN EACH <answer> TAG!
+        Doing so will break the autograder. To avoid accidentally breaking
+        something, please leave all existing comments in this template
+        intact in your submission.
+    -->
+
+    <student>
+        <name>
+            <!-- Insert your full name on the line below. -->
+            James Van Gilder
+        </name>
+        <studentid>
+            <!-- Insert your student ID number below. -->
+            9081186117
+        </studentid>
+    </student>
+
+
+    <!-- BEGIN PROBLEM 1 -->
+    <answer number="1a">
+        <!-- Paste your solution to problem 1, part (a) below this line. --><![CDATA[
+
+SELECT *
+FROM hospital
+GROUP BY provider
+HAVING COUNT(provider) > 1
+
+        ]]><!-- End problem 1, part (a). -->
+    </answer>
+    <answer number="1b">
+        <!-- Paste your solution to problem 1, part (b) below this line. --><![CDATA[
+
+SELECT *
+FROM hospital
+GROUP BY zip
+HAVING COUNT(Distinct city) > 1
+
+
+        ]]><!-- End problem 1, part (b). -->
+    </answer>
+    <!-- END PROBLEM 1 -->
+
+
+    <!-- BEGIN PROBLEM 2 -->
+    <answer number="2a">
+        <!-- Paste your solution to problem 2, part (a) below this line. --><![CDATA[
+
+answer = True
+explanation = '{A} -> {D,E} and {D} -> {C,F} so {A} -> {A,C,D,E,F} and {B} -> {B}, so combined it is a super key'
+
+        ]]><!-- End problem 2, part (a). -->
+    </answer>
+    <answer number="2b">
+        <!-- Paste your solution to problem 2, part (b) below this line. --><![CDATA[
+
+answer = False
+explanation = "Unless we use implied FDs, the given decomposition cannot recreate the whole relation S from the relations given"
+
+        ]]><!-- End problem 2, part (b). -->
+    </answer>    
+    <answer number="2c">
+        <!-- Paste your solution to problem 2, part (c) below this line. --><![CDATA[
+
+answer = False
+explanation = "Because there are no relations containing A and D, the FD {A} -> {D} cannot be created and thus all FDs are not preserved"
+
+        ]]><!-- End problem 2, part (c). -->
+    </answer>
+    <answer number="2d">
+        <!-- Paste your solution to problem 2, part (d) below this line. --><![CDATA[
+
+answer = True
+explanation = "By transitivity, A -> F is true by going through D (A -> D and D -> F) and A -> E is true, so {A} -> {E, F}"
+
+        ]]><!-- End problem 2, part (d). -->
+    </answer>
+    <answer number="2e">
+        <!-- Paste your solution to problem 2, part (e) below this line. --><![CDATA[
+
+answer = False
+explanation = "It is impossible to determine all values given the FDs without any trivial FDs because B is unreachable"
+
+        ]]><!-- End problem 2, part (e). -->
+    </answer>
+    <!-- END PROBLEM 2 -->
+
+    <!-- BEGIN PROBLEM 3 -->
+    <answer number="3a">
+        <!-- Paste your solution to problem 3, part (a) below this line. --><![CDATA[
+
+$$ \pi_{name}(\sigma_{year = "2021" AND affiliation = "UW-Madison"}(Article \ltimes Conference \ltimes Author \ltimes Person)) $$
+
+        ]]><!-- End problem 3, part (a). -->
+    </answer>
+    <answer number="3b">
+        <!-- Paste your solution to problem 3, part (b) below this line. --><![CDATA[
+
+$$ \pi_{name}(\sigma_{INCOMPLETE}(\rho_{A} Author \bowtie \rho_{P} Person \bowtie \rho_{U} Author \bowtie \rho_{E} Person)) $$
+
+        ]]><!-- End problem 3, part (b). -->
+    </answer>
+    <answer number="3c">
+        <!-- Paste your solution to problem 3, part (c) below this line. --><![CDATA[
+
+$$ \pi_{pid, count(A.artid)}(\sigma_{A.confid = C.name AND c.name = "PODS" AND U.artid = A.artid}(\rho_A Article \bowtie \rho_C Conference \bowtie \rho_U Author)) $$
+
+        ]]><!-- End problem 3, part (c). -->
+    </answer>
+    <!-- END PROBLEM 3 -->
+
+</pset>
